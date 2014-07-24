@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/smsText"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/main_back_ground_color"
+        android:text="" />
+
+    <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_gravity="center"
+     android:text="@string/phone_label"
+      />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="11"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/main_back_ground_color"
+        android:inputType="phone" >
+        <requestFocus />
+    </EditText>
+    <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_gravity="center"
+     android:text="@string/sms_label"
+      />    
+    <EditText
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/main_back_ground_color"
+        android:ems="11"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:inputType="textMultiLine" >
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+        
+            <Button
+                android:id="@+id/bt_send"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_normal"
+                android:textColor="@color/bt_text"
+                android:layout_margin="0dp"
+                android:text="@string/send_button" />
+            <Button
+                android:id="@+id/bt_clear"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_normal"
+                android:textColor="@color/bt_text"
+                android:layout_margin="0dp"
+                android:text="@string/clear_button" />
+    </LinearLayout>
+        
+</LinearLayout>

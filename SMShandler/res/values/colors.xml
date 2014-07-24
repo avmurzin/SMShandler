@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources> 
+    
+    <color name="bt_text">#000000</color> 
+    <color name="bt_bg">#000000</color> 
+    <color name="bs_text">#ff0000</color> 
+    <color name="bs_bg">#000000</color> 
+    <color name="enter_text">#00ff00</color> 
+    <color name="enter_bg">#000000</color> 
+    <color name="answer_bg">#dddddd</color>
+    <color name="green">#f0f0</color> 
+    <color name="main_back_ground_color">#DDDDDD</color> 
+    <color name="text_good_ans">#00ff00</color> 
+    <color name="text_bad_ans">#ff0000</color> 
+    <color name="up_count">#00ff00</color> 
+    <color name="down_count">#ff0000</color> 
+
+</resources>
