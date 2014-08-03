@@ -3,7 +3,9 @@ package com.avmurzin.smshandler;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.telephony.SmsMessage;
 import android.view.View;
 /**
@@ -46,19 +48,30 @@ public class SMSreceiver extends BroadcastReceiver {
 				SMSmessage = "Текст: " + SMSmessage + System.getProperty("line.separator");
 			}
    
-		    if (SMShandler.isActivityVisible()) {
-		    	SMShandler.getTextView().setText("Было получено сообщение" 
-		    			+ System.getProperty("line.separator") 
-		    			+ SMSsender + SMSmessage);
-		    	SMShandler.getTextView().setVisibility(View.VISIBLE);
-		    } else {
-			    Intent processorIntent = new Intent(context, SMSprocessor.class);
-			    processorIntent.putExtra("sms_message", SMSmessage);
-			    processorIntent.putExtra("sms_sender", SMSsender);
-			    context.startService(processorIntent);
-		    }
-		    
-		    abortBroadcast();
+//			if (SMShandler.isActivityVisible()) {
+//				SMShandler.getTextView().setText("Было получено сообщение" 
+//						+ System.getProperty("line.separator") 
+//						+ SMSsender + SMSmessage);
+//				SMShandler.getTextView().setVisibility(View.VISIBLE);
+//			} else {
+//				Intent processorIntent = new Intent(context, SMSprocessor.class);
+//				processorIntent.putExtra("sms_message", SMSmessage);
+//				processorIntent.putExtra("sms_sender", SMSsender);
+//				context.startService(processorIntent);
+//			}
+			
+			Intent processorIntent = new Intent(context, SMSprocessor.class);
+			processorIntent.putExtra("sms_message", SMSmessage);
+			processorIntent.putExtra("sms_sender", SMSsender);
+			context.startService(processorIntent);	
+//			SharedPreferences mPreferences = context.getSharedPreferences(SMSListActivity.SETTINGS_NAME, Context.MODE_PRIVATE);
+//			if (mPreferences.getBoolean(SMSListActivity.SETTINGS_ABORT, true)) {
+//				abortBroadcast();
+//			}
+			SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+			if (sharedPref.getBoolean("abort", true)) {
+				abortBroadcast();
+			}
 		}
 
 	}

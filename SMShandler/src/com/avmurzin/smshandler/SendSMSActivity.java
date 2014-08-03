@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -15,7 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class SendSMSActivity extends Activity implements OnClickListener {
 	private Button bt_send, bt_clear;
 	private EditText phone, text;
 	private TextView smsText;
@@ -37,22 +39,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		bt_clear.setOnClickListener(this);
 		smsText.setOnClickListener(this);
 		
-		Intent intent = getIntent();
-		if (intent != null) {
-			String sms_sender = intent.getStringExtra("sms_sender");
-			String sms_message = intent.getStringExtra("sms_message");
-			if (sms_sender != null || sms_message != null) {
-				smsText.setVisibility(View.VISIBLE);
-			} else {
-				smsText.setVisibility(View.GONE);
-			}
-
-			smsText.setText("Было получено сообщение" 
-					+ System.getProperty("line.separator")
-					+ intent.getStringExtra("sms_sender")
-					+ intent.getStringExtra("sms_message"));
-//			phone.setText(sms_sender);
-		}
 	}
 
 	@Override
@@ -60,6 +46,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.bt_send: 
 			sendSMS(phone.getText().toString(), text.getText().toString());
+			finish();
 			break;
 		case R.id.bt_clear: 
 			phone.setText("");

@@ -3,9 +3,19 @@
 
     <string name="app_name">SMShandler</string>
     <string name="title_activity_main">SMShandler</string>
+    <string name="title_activity_settings">Настройки</string>
     <string name="phone_label">Номер абонента</string>
     <string name="sms_label">Текст сообщения</string>
     <string name="send_button">Отправить</string>
     <string name="clear_button">Очистить</string>
+    <string name="no_sms">Нет входящих сообщений</string>
+    <string name="new_menu">Создать сообщение</string>
+    <string name="clear_menu">Очистить список</string>
+    <string name="settings_menu">Настройки</string>
+    <string name="exit_menu">Выйти</string>
+    <string name="title_activity_send_sms">SendSMSActivity</string>
+    <string name="abort_title_pref">Обработка SMS</string>
+    <string name="abort_summary_pref">Запретить дальнейшую обработку</string>
+
 
 </resources>
